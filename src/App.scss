@@ -1,0 +1,402 @@
+html {
+  background: rgb(40, 44, 52);
+}
+.header {
+  position: fixed;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  top: 0;
+  width: 100vw;
+  height: 50px;
+  background-color: rgba(15, 27, 40, 1);
+  color: ivory;
+  z-index: 5;
+  .search {
+    display: flex;
+    max-width: 20vw;
+    height: 50%;
+    position: relative;
+    left: 25px;
+    flex: 1;
+    .searchInput {
+      background: rgba(100, 110, 167, 0.6);
+      width: 10vw;
+      color: rgb(236, 236, 177);
+      font-weight: bold;
+      border: 1px solid rgb(176, 128, 234);
+      border-radius: 5px;
+      z-index: 7;
+    }
+    .searchBtn {
+      border-radius: 5px;
+      background: rgba(100, 110, 167, 0.5);
+      color: rgb(236, 236, 177);
+      font-weight: 400;
+      border: 1px solid rgb(176, 128, 234);
+      width: 4vw;
+      overflow: hidden;
+      &:hover {
+        background-color: rgba(100, 110, 167, 0.8);
+      }
+      &:active {
+        background-color: rgba(57, 81, 219, 0.5);
+      }
+    }
+  }
+  .headerTitle {
+    position: relative;
+    flex: 6;
+    left: -7.5vw;
+    font-size: 1.1vw;
+  }
+  .topBtn {
+    position: fixed;
+    background-color: rgba(100, 110, 167, 0.6);
+    width: 50px;
+    height: 50px;
+    left: 95vw;
+    top: 90vh;
+    font-weight: bold;
+    border-radius: 50%;
+    color: rgb(201, 201, 143);
+    border: 3px solid rgb(137, 129, 68);
+    &:hover {
+      background-color: rgba(100, 110, 167, 1);
+    }
+    &:active {
+      background-color: rgba(57, 81, 219, 0.5);
+    }
+  }
+  .refresh {
+    position: fixed;
+    background-color: rgba(100, 110, 167, 0.6);
+    width: 50px;
+    height: 50px;
+    left: 95vw;
+    top: 83vh;
+    font-weight: bold;
+    border-radius: 50%;
+    color: rgb(201, 201, 143);
+    border: 3px solid rgb(137, 129, 68);
+    &:hover {
+      background-color: rgba(100, 110, 167, 1);
+    }
+    &:active {
+      background-color: rgba(57, 81, 219, 0.5);
+    }
+    .refreshIcon {
+      position: relative;
+      top: 2px;
+      width: 32px;
+      height: auto;
+      opacity: 0.8;
+    }
+  }
+}
+.App {
+  background-color: rgb(40, 44, 52);
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding-top: 70px;
+  padding-bottom: 10px;
+}
+.content {
+  padding-left: 0.8vw;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  position: relative;
+  left: 0;
+  li {
+    position: relative;
+    padding-top: 20px;
+    left: 0.25vw;
+    list-style-type: none;
+    width: calc((100vw / 4.2));
+    height: 23vh;
+    background: rgba(80, 80, 80, 0.6);
+    font-size: 1.1rem;
+    border-radius: 20px;
+    &:hover {
+      background-color: rgba(100, 110, 167, 0.5);
+    }
+    &:active {
+      background-color: rgba(57, 81, 219, 0.5);
+    }
+    cursor: pointer;
+  }
+  .nameSpan {
+    font-size: 1.7vh;
+  }
+  .imgBox {
+    border: 2px solid rgb(100, 110, 167);
+    width: auto;
+    height: 11vh;
+    cursor: pointer;
+  }
+  hr {
+    width: 40%;
+    border-color: rgb(245, 222, 179);
+  }
+  .blackBack {
+    position: fixed;
+    z-index: 2;
+    background: rgba(1, 1, 1, 0.8);
+    width: 100vw;
+    left: 0.01vw;
+    top: 2.7vh;
+    height: 100vh;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .blackBackShow {
+    display: flex;
+  }
+  .modalContent {
+    position: relative;
+    z-index: 2.5;
+    background: rgb(57, 35, 1);
+    width: 50vw;
+    left: 0vw;
+    top: -35px;
+    height: 68vh;
+    transform: translate(0, 5%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid rgb(111, 76, 21);
+    border-radius: 15px;
+    padding: 5%;
+    display: flex;
+    flex-flow: column;
+  }
+  .modalHeader {
+    position: fixed;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    top: 0;
+    width: 59.6vw;
+    height: 50px;
+    background-color: rgb(87, 69, 46);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: rgb(202, 200, 164);
+    z-index: 3;
+    font-size: 1.5rem;
+    span {
+      position: relative;
+      transform: translateX(19%);
+    }
+    button {
+      position: relative;
+      right: -23vw;
+      background-color: rgba(1, 1, 1, 0);
+      border-radius: 100%;
+      border: 2px solid rgb(172, 168, 132);
+      color: rgb(180, 178, 144);
+      font-size: 0.8rem;
+    }
+  }
+}
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  font-size: 1.6rem;
+  background-color: rgba(1, 1, 1, 0.5);
+  padding: 0;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  top: 0;
+  left: 0;
+}
+.footer {
+  width: 1px;
+  height: 1px;
+  background: rgb(8, 5, 5, 0);
+}
+.head {
+  width: 1px;
+  height: 1px;
+  top: -1px;
+  background: rgb(255, 0, 0, 0);
+}
+.modalContentItem {
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: 100%;
+  gap: 3vw;
+  z-index: 3;
+  .modalContentItem1 {
+    position: relative;
+    display: flex;
+    background-color: rgb(93, 89, 79);
+    border: 5px solid rgb(143, 140, 92);
+    flex: 4;
+    top: 21%;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    max-height: 60%;
+    z-index: 3.5;
+    .modalImgBox {
+      height: auto;
+      width: 18vw;
+      z-index: 4;
+    }
+  }
+  .modalContentItem2 {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: black;
+    flex: 7;
+    top: 25px;
+    border-radius: 25px;
+    text-align: center;
+    align-items: start;
+    justify-content: center;
+    z-index: 3.5;
+    .pokemonDetail {
+      position: relative;
+      flex: 4;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+      font-size: 1.5rem;
+      background-color: rgba(82, 61, 27, 0.8);
+      width: 100%;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      .hrTop {
+        position: relative;
+        margin-top: 50px;
+      }
+      .pokemonDetailTitle {
+        position: relative;
+        width: 100%;
+        height: 5vh;
+        top: 5vh;
+        font-size: 2.5vh;
+
+        .fontSize2r {
+          font-size: 3vh;
+        }
+      }
+      .pokemonInfo {
+        position: relative;
+        background-color: rgba(1, 1, 1, 0.3);
+        width: 65%;
+        left: 16.5%;
+        height: 50%;
+        border-radius: 10px;
+        text-align: start;
+        align-items: start;
+        justify-content: start;
+        padding: 10px 5px 10px 5px;
+        border: 3px solid saddlebrown;
+        font-size: 1.2rem;
+        display: flex;
+        flex-flow: column nowrap;
+        .info1 {
+          width: 100%;
+          flex: 1;
+          background-color: rgba(1, 1, 1, 0);
+        }
+        .info2 {
+          flex: 1;
+          background-color: rgba(1, 1, 1, 0);
+        }
+        .infoHr {
+          width: 100%;
+          position: relative;
+          top: -1vh;
+          border-color: saddlebrown;
+        }
+      }
+    }
+    .evolution {
+      position: relative;
+      display: flex;
+      flex-flow: column nowrap;
+      flex: 2;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      height: 100%;
+      background-color: rgba(82, 61, 27, 0.5);
+      width: 100%;
+      .evolutionTitle {
+        position: relative;
+        display: flex;
+        width: 100%;
+        flex: 2;
+        background-color: rgba(82, 61, 27, 0.4);
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+      .evolutionChain {
+        position: relative;
+        display: flex;
+        width: 100%;
+        flex: 4;
+        background-color: rgba(82, 61, 27, 0.1);
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        .evolutionBox {
+          display: flex;
+          flex: 1;
+          flex-flow: column nowrap;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+          .smallFont {
+            font-size: 0.7rem;
+            display: flex;
+            position: relative;
+            top: -2vh;
+          }
+          .evolutionImgBox {
+            display: flex;
+            position: relative;
+            top: 1vh;
+          }
+        }
+      }
+    }
+  }
+}
+html {
+  & ::-webkit-scrollbar {
+    width: 10px;
+  }
+  & ::-webkit-scrollbar-thumb {
+    background: rgb(245, 222, 179);
+    border-radius: 10px;
+  }
+  & ::-webkit-scrollbar-track {
+    background: rgba(40, 44, 52, 0.95);
+  }
+}
