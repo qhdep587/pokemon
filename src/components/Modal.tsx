@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable array-callback-return */
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { axiosGet } from "../api/axios";
 import { TargetContext } from "../context/TargetContext";
